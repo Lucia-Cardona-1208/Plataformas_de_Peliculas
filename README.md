@@ -22,87 +22,101 @@ Al obtener los datos ya limpios realicé en Power BI el análisis a partir de gr
 ## Queries y scripts de Python:
 
 ### Importar librería y lectura de archivo
+```ruby
 #importación de Pandas y lectura de archivo
 import pandas as pd
 csv_path=('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-ts_lsvOSHcT_XBvoev_kIyV1cotw044BeDn3oehs7WLujetsLsqP9CFBTr_sfrYSWgejyni0S9Rg/pub?gid=299857629&single=true&output=csv')
-df = pd.read_csv(csv_path, sep=",")
+df = pd.read_csv(csv_path, sep=",")         
+```
 
+```ruby
 #Imprimir las primeras cinco filas de un dataframe para probar que todo está bien.
 df.head()
+```
 
 ### Variables y reemplazar datos
+```ruby
 #Ver los tipos de valores de cada columna
 df.dtypes
-
+```
+```ruby
 df['Netflix'] = df['Netflix'].astype('string')
 df['Hulu'] = df['Hulu'].astype('string')
 df['Prime Video'] = df['Prime Video'].astype('string')
 df['Disney+'] = df['Disney+'].astype('string')
 df.dtypes
+```
 
+```ruby
 #Remplazar "0" por "no" y "1" por "si" en las columnas "Netflix" "Hulu" "Prime Video" "Disney+"
 df['Netflix'] = df['Netflix'].replace({"0":"No", "1":"Si"})
 df['Hulu'] = df['Hulu'].replace({"0":"No", "1":"Si"})
 df['Prime Video'] = df['Prime Video'].replace({"0":"No", "1":"Si"})
 df['Disney+'] = df['Disney+'].replace({"0":"No", "1":"Si"})
+```
 
+```ruby
 #Cambiar títulos a las columnas
 df.columns= ['Enumeración','ID','Título_Película', 'Año', 'Edad', 'Calificación(tomatómetro)', 'Netflix', 'Hulu', 'Prime_Video', 'Disney+', 'Type']
-
 #Imprimir las primeras cinco filas de un dataframe para probar que todo está bien.
 df.head()
+```
 
 ### Eliminar columnas y datos nulos
+```ruby
 #Eliminar columnas
 df=df.drop('Enumeración',axis=1)
 df=df.drop('ID',axis=1)
 df=df.drop('Type',axis=1)
-
+```
+```ruby
 #Nos ayuda para ver los nombres de las columnas.
 df.columns
-
 #Imprimir las primeras cinco filas de un dataframe para probar que todo está bien.
 df.head()
-
+```
+```ruby
 #Con este eliminamos las filas con datos nulos.
 df=df.dropna(axis=0)
-
 #Imprimir las primeras cinco filas de un dataframe para probar que todo está bien.
 df.head()
-
+```
+```ruby
 #Para visualizar todos los datos.
 df
+```
 
 ### Histogramas y diagramas
+```ruby
 #Importando las bibliotecas necesarias para visualización de datos y análisis exploratorio
-
 import matplotlib.pyplot as plt  # Biblioteca para crear gráficos y visualizaciones estáticas, animadas e interactivas en Python
-
-import seaborn as sns  # Biblioteca para crear gráficos estadísticos atractivos e informativos en Python
-
-
+import seaborn as sns
+# Biblioteca para crear gráficos estadísticos atractivos e informativos en Python
 #Utilizando Seaborn para crear un diagrama de distribución (histograma y KDE) para la columna 'Año' del DataFrame df
-
 sns.distplot(df['Año'])
-
 #Creando un histograma para la columna 'Año' del DataFrame df
 #figsize=(6,6) especifica las dimensiones del gráfico en pulgadas
 
 df['Año'].hist(figsize=(6,6))
-
 #Mostrando el gráfico en pantalla
-
 plt.show()
+```
 
+```ruby
 #Creando una figura con dimensiones específicas (10x10 pulgadas)
 fig=plt.figure(figsize=(20,50))
 #Creando un diagrama de caja (boxplot) para comparar la distribución de los precios entre los diferentes estilos de carrocería
 sns.boxplot(x="Edad", y="Año", data=df)
 #Mostrando el gráfico en pantalla
 plt.show()
+```
 
 ### Descargar el archivo csv
+```ruby
 df.to_csv('Plataformas_Peliculas.csv')
+```
 
+```ruby
 from google.colab import files
 files.download('Plataformas_Peliculas.csv')
+```
