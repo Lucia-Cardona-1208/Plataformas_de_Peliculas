@@ -2,7 +2,7 @@
 ## Fuente de datos: Kaggle
 https://www.kaggle.com/datasets/ruchi798/movies-on-netflix-prime-video-hulu-and-disney/data
 ## Presentación: Google Slides
-https://docs.google.com/presentation/d/1uyG7JdMYfyQYjEqo6LNL2MP1qP5c0o580WGRrJTFDqo/edit#slide=id.ga7274a1822_0_430
+https://docs.google.com/presentation/d/e/2PACX-1vSnS4hidxFisquEMuoCZJ_Nqd7zh1X54Fr8ubuBJjuOqF3cee2hPOwAhSPfnLhL9qdABBaw8MmtW469/pub?start=false&loop=false&delayms=60000
 ## Descripción:
 Para realizar este proyecto se hallaron datos de Netflix, Disney+, Prime Video y Hulu; clasificación de los datos: 
 * El título o nombre de la película.
